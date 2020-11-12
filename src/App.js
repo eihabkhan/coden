@@ -1,21 +1,23 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 import './App.css';
 
 import Homepage from './pages/homepage/Homepage.component'
+import Shoppage from './pages/shop/Shop.component'
+import Header from './components/header/Header.component'
+import SignInPage from './pages/sign-in/SignIn.component'
 
-const HatsPage = () => (
-  <div>
-    <h1>Hats Page</h1>
-  </div>
-)
 
 function App() {
   return (
-    <div className="App">
-      <Route exact path='/' component={Homepage} />
-      <Route exact path='/hats' component={HatsPage} />
+    <div>
+      <Header />
+      <Switch>
+        <Route exact path='/' component={Homepage} />
+        <Route path='/shop' component={Shoppage} />
+        <Route path='/login' component={SignInPage} />
+      </Switch>
     </div>
   );
 }
