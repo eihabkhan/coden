@@ -5,10 +5,12 @@ import { createStructuredSelector } from 'reselect'
 
 import './App.css';
 
-import Homepage from './pages/homepage/Homepage.component'
-import Shoppage from './pages/shop/Shop.component'
 import Header from './components/header/Header.component'
+
+import HomePage from './pages/homepage/Homepage.component'
+import ShopPage from './pages/shop/Shop.component'
 import SignInPage from './pages/sign-in/SignIn.component'
+import CheckoutPage from './pages/checkout/Checkout.component'
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils'
 import { setCurrentUser } from './redux/user/user.actions'
@@ -49,8 +51,9 @@ class App extends Component {
       <div>
         <Header />
         <Switch>
-          <Route exact path='/' component={Homepage} />
-          <Route path='/shop' component={Shoppage} />
+          <Route exact path='/' component={HomePage} />
+          <Route path='/shop' component={ShopPage} />
+          <Route path='/checkout' component={CheckoutPage} />
           <Route exact path='/login' 
             render={() => this.props.currentUser ? (<Redirect to='/'/>) : (<SignInPage />) } 
           />
