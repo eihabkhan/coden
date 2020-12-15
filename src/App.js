@@ -51,6 +51,7 @@ class App extends Component {
       <div>
         <Header />
         <Switch>
+          {/* {match, location, history are props that are automatically passed to the components that use Route} */}
           <Route exact path='/' component={HomePage} />
           <Route path='/shop' component={ShopPage} />
           <Route path='/checkout' component={CheckoutPage} />
