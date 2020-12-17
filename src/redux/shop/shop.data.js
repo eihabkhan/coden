@@ -1,5 +1,5 @@
-const SHOP_DATA = [
-    {
+const SHOP_DATA = {
+    desks: {
         id: 1,
         title: 'Desks',
         routeName: 'desks',
@@ -43,7 +43,7 @@ const SHOP_DATA = [
           {
             id: 7,
             name: 'IKEA Linnmon / Alex',
-            imageUrl: 'https://i.ibb.co/bLB646Z/red-beanie.png',
+            imageUrl: 'https://www.ikea.com/ma/en/images/products/linnmon-alex-table-white__0737597_PE741188_S5.JPG?f=xl',
             price: 150
           },
           {
@@ -60,7 +60,7 @@ const SHOP_DATA = [
           }
         ]
       },
-      {
+      monitors: {
         id: 2,
         title: 'Monitors',
         routeName: 'monitors',
@@ -115,7 +115,7 @@ const SHOP_DATA = [
           }
         ]
       },
-      {
+      keyboards: {
         id: 3,
         title: 'Keyboards',
         routeName: 'keyboards',
@@ -152,7 +152,7 @@ const SHOP_DATA = [
           }
         ]
       },
-      {
+      mice: {
         id: 4,
         title: 'Mice',
         routeName: 'mice',
@@ -201,7 +201,7 @@ const SHOP_DATA = [
           }
         ]
       },
-      {
+      headphones: {
         id: 5,
         title: 'Headphones',
         routeName: 'headphones',
@@ -244,6 +244,6 @@ const SHOP_DATA = [
           }
         ]
       }
-]
+    }
 
 export default SHOP_DATA
