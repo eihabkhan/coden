@@ -10,6 +10,7 @@ import {
 } from './MenuItem.styles'
 
 const MenuItem = ({title, imageUrl, size, history, linkUrl, match}) =>  {
+    console.log(size);
     return (
         <MenuItemContainer size={size}
             onClick={() => history.push(`${match.url}${linkUrl}`)}
