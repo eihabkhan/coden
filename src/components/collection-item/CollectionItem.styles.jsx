@@ -7,6 +7,7 @@ export const CollectiopnItemContainer = styled.div`
     flex-direction: column;
     height: 350px;
     align-items: center;
+    margin-top: 30px; 
     position: relative;
     
     &:hover {
@@ -18,6 +19,7 @@ export const CollectiopnItemContainer = styled.div`
         opacity: 0.85;
         display: flex;
       }
+    }
 `
 
 export const AddButton = styled(CustomButton)`
@@ -47,6 +49,7 @@ export const CollectionFooterContainer = styled.div`
     font-weight: bold;
     border-top: 1px solid black;
     padding: 8px;
+    margin-bottom: 30px;
 ` 
 
 export const NameContainer = styled.span`
