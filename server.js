@@ -22,9 +22,11 @@ if (process.env.NODE_ENV === 'production') {
     })
 }
 
-app.listen(port, error => error? 
-    console.log("server error"): 
-    console.log(`Server up and running on port: ${port}`))
+app.listen(port, error => {
+    if (error) throw error
+    console.log("server error")
+    console.log(`Server up and running on port: ${port}`)
+})
 
 app.post('/payment', (req, res)=> {
     const body = {
