@@ -9,10 +9,10 @@ import CollectionPageContainer from '../collection/Collection.container'
 import CollectionsOverviewContainer from '../../components/collections-overview/CollectionsOverview.container'
 
 
-const Shop = ({fetchCollectionsStar, match }) => {
+const Shop = ({fetchCollectionsStart, match }) => {
     useEffect(()=> {
         fetchCollectionsStart()
-    }, [fetchCollectionsStar])
+    }, [fetchCollectionsStart])
     return (
         <div className='shop-page'> 
             <Route exact path={`${match.path}`} component={CollectionsOverviewContainer} />

@@ -12,8 +12,9 @@ import ShopPage from './pages/shop/Shop.component'
 import SignInPage from './pages/sign-in/SignInPage.component'
 import CheckoutPage from './pages/checkout/Checkout.component'
 
-import {selectCurrentUser} from './redux/user/user.selector'
+import {GlobalStyle} from './global.styles'
 
+import {selectCurrentUser} from './redux/user/user.selector'
 import {checkUserSession} from './redux/user/user.actions'
 
 const App = ({ checkUserSession, currentUser }) => {  
@@ -24,6 +25,7 @@ const App = ({ checkUserSession, currentUser }) => {
   
   return (
     <div>
+      <GlobalStyle />
       <Header />
       <Switch>
         {/* {match, location, history are props that are automatically passed to the components that use Route} */}
