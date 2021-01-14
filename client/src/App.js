@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, lazy, Suspense } from 'react'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
@@ -6,16 +6,18 @@ import { createStructuredSelector } from 'reselect'
 import './App.css';
 
 import Header from './components/header/Header.component'
-
-import HomePage from './pages/homepage/Homepage.component'
-import ShopPage from './pages/shop/Shop.component'
-import SignInPage from './pages/sign-in/SignInPage.component'
-import CheckoutPage from './pages/checkout/Checkout.component'
+import Spinner from './components/spinner/Spinner.component'
+import ErrorBoundary from './components/error-boundary/ErrorBoundary.comopnent'
 
 import {GlobalStyle} from './global.styles'
 
 import {selectCurrentUser} from './redux/user/user.selector'
 import {checkUserSession} from './redux/user/user.actions'
+
+const HomePage = lazy(() => import('./pages/homepage/Homepage.component'))
+const ShopPage = lazy(() => import('./pages/shop/Shop.component'))
+const SignInPage = lazy(() => import('./pages/sign-in/SignInPage.component'))
+const CheckoutPage = lazy(() => import('./pages/checkout/Checkout.component'))
 
 const App = ({ checkUserSession, currentUser }) => {  
   useEffect(()=> {
@@ -28,13 +30,17 @@ const App = ({ checkUserSession, currentUser }) => {
       <GlobalStyle />
       <Header />
       <Switch>
-        {/* {match, location, history are props that are automatically passed to the components that use Route} */}
-        <Route exact path='/' component={HomePage} />
-        <Route path='/shop' component={ShopPage} />
-        <Route path='/checkout' component={CheckoutPage} />
-        <Route exact path='/login' 
-          render={() => currentUser ? (<Redirect to='/'/>) : (<SignInPage />) } 
-        />
+        <ErrorBoundary>      
+          <Suspense fallback={<Spinner />}>
+            {/* {match, location, history are props that are automatically passed to the components that use Route} */}
+            <Route exact path='/' component={HomePage} />        
+            <Route path='/shop' component={ShopPage} />
+            <Route path='/checkout' component={CheckoutPage} />
+            <Route exact path='/login' 
+              render={() => currentUser ? (<Redirect to='/'/>) : (<SignInPage />) } 
+              />
+          </Suspense>
+        </ErrorBoundary>
       </Switch>
     </div>
   );  
