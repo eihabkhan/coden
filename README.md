@@ -1,10 +1,14 @@
 # Coden | A one-stop-shop for Coders
+
 ---
-![Banner](./src/assets/banner.png)
+
+![Banner](./client/src/assets/banner.png)
 ---
+
 Secure payment with Stripe
-![Preview](./src/assets/stripe-badge.png)
+![Preview](./client/src/assets/stripe-badge.png)
 ---
-![Preview](./src/assets/preview.png)
+
+![Preview](./client/src/assets/preview.png)
 
 ## Check The App: [DEMO](https://coden-live.herokuapp.com/)
